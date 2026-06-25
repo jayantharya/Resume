@@ -437,12 +437,12 @@ const Toast = ({ message, type, onClose }: any) => {
 };
 
 // ─── GLITCH LOGO ─────────────────────────────────────────────────────────────
-const GlitchLogo = () => (
+/*const GlitchLogo = () => (
   <h1 style={{ fontFamily: 'var(--ff-head)', fontSize: 64, lineHeight: 1, letterSpacing: 3, color: 'var(--amber)', position: 'relative' }}>
     <span className="glitch-wrap" data-text="RESUME">RESUME</span>
     <span style={{ color: 'var(--text)', marginLeft: 6 }}>.AI</span>
   </h1>
-);
+);*/
 
 // ─── TRUST BAR ───────────────────────────────────────────────────────────────
 const TRUST_STATS = [
@@ -773,7 +773,7 @@ const RecruiterImpression = ({ text }: { text: string }) => {
 };
 
 // ─── COVER LETTER HOOK ───────────────────────────────────────────────────────
-const CoverLetterHook = ({ hook }: { hook: string }) => {
+/*const CoverLetterHook = ({ hook }: { hook: string }) => {
   const [copied, setCopied] = useState(false);
   if (!hook) return null;
   const copy = async () => { await navigator.clipboard.writeText(hook); setCopied(true); setTimeout(() => setCopied(false), 2000); };
@@ -787,10 +787,10 @@ const CoverLetterHook = ({ hook }: { hook: string }) => {
       <div style={{ fontSize: 13, color: 'var(--text)', lineHeight: 1.8, fontStyle: 'italic' }}>{hook}</div>
     </div>
   );
-};
+};*/
 
 // ─── ATS IMPROVEMENTS ────────────────────────────────────────────────────────
-const ATSImprovements = ({ improvements }: { improvements: string[] }) => {
+/*const ATSImprovements = ({ improvements }: { improvements: string[] }) => {
   if (!improvements?.length) return null;
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 8, animation: 'fadeUp 0.5s 0.2s ease both' }}>
@@ -805,7 +805,7 @@ const ATSImprovements = ({ improvements }: { improvements: string[] }) => {
       ))}
     </div>
   );
-};
+};*/
 
 // ─── CONFETTI ─────────────────────────────────────────────────────────────────
 const Confetti = ({ active }: { active: boolean }) => {
