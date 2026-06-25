@@ -642,8 +642,7 @@ const InfoCard = ({ title, items, accent, delay = 0 }: any) => (
   <div className="rai-card scan-parent" style={{ animation: `fadeUp 0.5s ${delay}s ease both`, borderLeft: `3px solid ${accent}` }}>
     <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
       <span style={{ width: 8, height: 8, borderRadius: '50%', background: accent, flexShrink: 0, boxShadow: `0 0 10px ${accent}`, animation: 'pulse 2s infinite' }} />
-      <span style={{ fontSize: 10, letterSpacing: 2.5, color: accent, fontFamily: 'var(--ff-head)', fontSize: 14 }}>{title}</span>
-    </div>
+      <span style={{ letterSpacing: 2.5, color: accent, fontFamily: 'var(--ff-head)', fontSize: 14 }}>{title} </span>    </div>
     <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 10 }}>
       {items.map((item: string, i: number) => (
         <li key={i} style={{ display: 'flex', gap: 10, fontSize: 13, color: 'var(--muted)', lineHeight: 1.7, animation: `slideL 0.4s ${delay + i * 0.07}s ease both`, opacity: 0, animationFillMode: 'both' }}>
