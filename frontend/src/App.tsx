@@ -1364,8 +1364,7 @@ export default function App() {
   const canAnalyze = !!file;
   const canBuild = form.name.trim() && form.target_job.trim() && form.experience[0]?.description.trim();
 
-  const API_BASE_URL = 'http://127.0.0.1:8000';
-
+  const API_BASE_URL = 'https://your-username.pythonanywhere.com';
   // ── keyboard shortcut: Ctrl/Cmd + Enter to submit ───────────────────────
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
