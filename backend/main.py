@@ -41,7 +41,11 @@ app.add_middleware(
     max_age=86400,
 )
 
-API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyBUyNeQd3pEwgxiRyq8O0S5tCru9EvxWtY")
+import os
+from dotenv import load_dotenv
+
+load_dotenv() # This loads the variables from the .env file
+API_KEY = os.getenv("MY_AI_API_KEY")
 MODEL_NAME = "gemini-2.5-flash"
 client = genai.Client(api_key=API_KEY)
 

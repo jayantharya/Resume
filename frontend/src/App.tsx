@@ -45,14 +45,14 @@ const STYLES = `
   textarea.rai-input { resize: vertical; min-height: 80px; line-height: 1.6; }
   select.rai-input { cursor: pointer; }
 
-  @keyframes fadeUp   { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes fadeUp    { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
   @keyframes fadeDown { from { opacity:0; transform:translateY(-18px); } to { opacity:1; transform:translateY(0); } }
-  @keyframes fadeIn   { from { opacity:0; } to { opacity:1; } }
-  @keyframes slideL   { from { opacity:0; transform:translateX(-16px); } to { opacity:1; transform:translateX(0); } }
-  @keyframes popIn    { from { opacity:0; transform:scale(0.85); } to { opacity:1; transform:scale(1); } }
-  @keyframes spin     { to { transform: rotate(360deg); } }
+  @keyframes fadeIn    { from { opacity:0; } to { opacity:1; } }
+  @keyframes slideL    { from { opacity:0; transform:translateX(-16px); } to { opacity:1; transform:translateX(0); } }
+  @keyframes popIn     { from { opacity:0; transform:scale(0.85); } to { opacity:1; transform:scale(1); } }
+  @keyframes spin      { to { transform: rotate(360deg); } }
   @keyframes spinRev  { to { transform: rotate(-360deg); } }
-  @keyframes pulse    { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+  @keyframes pulse     { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
   @keyframes countUp  { from { transform:translateY(100%); opacity:0; } to { transform:translateY(0); opacity:1; } }
   @keyframes glitch1  {
     0%,100% { clip-path:inset(0 0 95% 0); transform:translate(-3px,0); }
@@ -68,10 +68,10 @@ const STYLES = `
     75% { clip-path:inset(10% 0 85% 0); transform:translate(-2px,0); }
   }
   @keyframes radarSpin { to { transform:rotate(360deg); } }
-  @keyframes toastIn  { from { opacity:0; transform:translateX(120%); } to { opacity:1; transform:translateX(0); } }
+  @keyframes toastIn   { from { opacity:0; transform:translateX(120%); } to { opacity:1; transform:translateX(0); } }
   @keyframes toastOut { from { opacity:1; transform:translateX(0); } to { opacity:0; transform:translateX(120%); } }
   @keyframes nodeFloat { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-8px); } }
-  @keyframes shimmer  { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+  @keyframes shimmer   { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
   @keyframes barGrow  { from { width: 0%; } to { width: var(--target-w); } }
   @keyframes tickerSlide { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
   @keyframes confettiFall { 0% { transform:translateY(-10px) rotate(0deg); opacity:1; } 100% { transform:translateY(300px) rotate(720deg); opacity:0; } }
@@ -81,7 +81,7 @@ const STYLES = `
   @keyframes scanLine { 0% { top:-2px; } 100% { top:100%; } }
   @keyframes navSlideDown { from { opacity:0; transform:translateY(-8px); } to { opacity:1; transform:translateY(0); } }
   @keyframes heroReveal { from { opacity:0; transform:translateY(24px) scale(0.98); } to { opacity:1; transform:translateY(0) scale(1); } }
-  @keyframes statPop  { from { opacity:0; transform:scale(0.8); } to { opacity:1; transform:scale(1); } }
+  @keyframes statPop   { from { opacity:0; transform:scale(0.8); } to { opacity:1; transform:scale(1); } }
   @keyframes connectorGrow { from { width:0; } to { width:100%; } }
 
   .glitch-wrap { position:relative; display:inline-block; }
@@ -90,7 +90,7 @@ const STYLES = `
     font-family: var(--ff-head); font-size: inherit; color: var(--amber); pointer-events: none;
   }
   .glitch-wrap::before { color: var(--cyan); animation: glitch1 4s infinite; }
-  .glitch-wrap::after  { color: var(--red);  animation: glitch2 4s infinite 0.1s; }
+  .glitch-wrap::after   { color: var(--red);  animation: glitch2 4s infinite 0.1s; }
 
   .scan-parent { position:relative; overflow:hidden; }
   .scan-parent::after {
@@ -436,14 +436,6 @@ const Toast = ({ message, type, onClose }: any) => {
   );
 };
 
-// ─── GLITCH LOGO ─────────────────────────────────────────────────────────────
-/*const GlitchLogo = () => (
-  <h1 style={{ fontFamily: 'var(--ff-head)', fontSize: 64, lineHeight: 1, letterSpacing: 3, color: 'var(--amber)', position: 'relative' }}>
-    <span className="glitch-wrap" data-text="RESUME">RESUME</span>
-    <span style={{ color: 'var(--text)', marginLeft: 6 }}>.AI</span>
-  </h1>
-);*/
-
 // ─── TRUST BAR ───────────────────────────────────────────────────────────────
 const TRUST_STATS = [
   { icon: '⚡', val: '50,000+', label: 'Resumes Analyzed' },
@@ -771,41 +763,6 @@ const RecruiterImpression = ({ text }: { text: string }) => {
     </div>
   );
 };
-
-// ─── COVER LETTER HOOK ───────────────────────────────────────────────────────
-/*const CoverLetterHook = ({ hook }: { hook: string }) => {
-  const [copied, setCopied] = useState(false);
-  if (!hook) return null;
-  const copy = async () => { await navigator.clipboard.writeText(hook); setCopied(true); setTimeout(() => setCopied(false), 2000); };
-  return (
-    <div className="cover-hook-card">
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
-        <span style={{ fontSize: 16 }}>✍️</span>
-        <span style={{ fontFamily: 'var(--ff-head)', fontSize: 14, letterSpacing: 2.5, color: 'var(--amber2)' }}>COVER LETTER OPENING</span>
-        <button onClick={copy} style={{ marginLeft: 'auto', background: copied ? 'rgba(0,232,150,0.12)' : 'rgba(255,255,255,0.04)', border: `1px solid ${copied ? 'rgba(0,232,150,0.4)' : 'var(--border)'}`, color: copied ? 'var(--green)' : 'var(--muted)', borderRadius: 8, padding: '4px 12px', cursor: 'pointer', fontFamily: 'var(--ff-body)', fontSize: 10, letterSpacing: 1, transition: 'all 0.3s' }}>{copied ? '✓ COPIED' : '⎘ COPY'}</button>
-      </div>
-      <div style={{ fontSize: 13, color: 'var(--text)', lineHeight: 1.8, fontStyle: 'italic' }}>{hook}</div>
-    </div>
-  );
-};*/
-
-// ─── ATS IMPROVEMENTS ────────────────────────────────────────────────────────
-/*const ATSImprovements = ({ improvements }: { improvements: string[] }) => {
-  if (!improvements?.length) return null;
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 8, animation: 'fadeUp 0.5s 0.2s ease both' }}>
-      <div style={{ fontSize: 10, color: 'var(--muted)', letterSpacing: 2, textTransform: 'uppercase', marginBottom: 4, display: 'flex', alignItems: 'center', gap: 8 }}>
-        <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--green)', display: 'inline-block' }} />ATS OPTIMIZATIONS APPLIED
-      </div>
-      {improvements.map((item, i) => (
-        <div key={i} className="improvement-item" style={{ animationDelay: `${i * 0.07}s` }}>
-          <span style={{ color: 'var(--green)', fontSize: 14, flexShrink: 0, marginTop: 1 }}>✓</span>
-          <span style={{ fontSize: 12, color: 'var(--text)', lineHeight: 1.7 }}>{item}</span>
-        </div>
-      ))}
-    </div>
-  );
-};*/
 
 // ─── CONFETTI ─────────────────────────────────────────────────────────────────
 const Confetti = ({ active }: { active: boolean }) => {
@@ -1364,7 +1321,7 @@ export default function App() {
   const canAnalyze = !!file;
   const canBuild = form.name.trim() && form.target_job.trim() && form.experience[0]?.description.trim();
 
-  const API_BASE_URL = 'https://your-username.pythonanywhere.com';
+  const API_BASE_URL = 'https://aryajayanth.pythonanywhere.com';
   // ── keyboard shortcut: Ctrl/Cmd + Enter to submit ───────────────────────
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
